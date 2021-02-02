@@ -1,19 +1,18 @@
 import axios from "axios";
 
-const baseUrl = "https://api.corona-19.kr/korea/";
-const keyValue = "f4e2972b8fe25c7ab914e1fc3584edb40";
+const baseUrl =
+    "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson";
+const keyValue =
+    "pesos9fSawB4XmQRfTBZXpLboZOut70eu3exepKBbdAtJZWe0cBWbgtYwIrS7vsVC%2FXrqWZpmuaNgsMZCEOWMA%3D%3D";
 
 const instance = axios.create({
     baseURL: baseUrl,
-    headers: {
-        "Access-Control-Allow-Credentials": true,
-        "Access-Control-Allow-Origin": "*",
-    },
 });
 
 function getCovidData() {
+    console.log(encodeURIComponent(keyValue));
     instance
-        .get(`?serviceKey=${keyValue}`)
+        .get(`?${encodeURIComponent(keyValue)}`)
         .then((response) => {
             console.log(response);
         })

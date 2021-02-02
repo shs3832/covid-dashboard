@@ -12,6 +12,7 @@ export const store = new Vuex.Store({
     actions: {
         async fetchData() {
             const covidData = await getCovidData();
+
             console.log(covidData);
         },
     },
