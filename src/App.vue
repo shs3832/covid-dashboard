@@ -1,28 +1,31 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <Header></Header>
+        <SummaryBoard></SummaryBoard>
+        <SummaryTable></SummaryTable>
+        <CityTable></CityTable>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { store } from "@/store/index.js";
+import { getCovidData } from "@/api/index.js";
+
+import Header from "@/components/header.vue";
+import SummaryTable from "@/components/summaryTable.vue";
+import SummaryBoard from "@/components/summaryBoard.vue";
+import CityTable from "@/components/cityTable.vue";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+    name: "App",
+    components: { SummaryBoard, Header, SummaryTable, CityTable },
+    store,
+    created() {
+        getCovidData();
+    },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import "./assets/css/style.css";
 </style>
