@@ -1,24 +1,36 @@
 import axios from "axios";
+// import $ from "jquery";
 
-const baseUrl =
-    "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson";
-const keyValue =
-    "pesos9fSawB4XmQRfTBZXpLboZOut70eu3exepKBbdAtJZWe0cBWbgtYwIrS7vsVC%2FXrqWZpmuaNgsMZCEOWMA%3D%3D";
+const baseUrl = "https://api.corona-19.kr/korea/";
+const keyValue = "f4e2972b8fe25c7ab914e1fc3584edb40";
 
 const instance = axios.create({
     baseURL: baseUrl,
 });
 
+instance.interceptors.request.use(
+    function(config) {
+        return config;
+    },
+    function(error) {
+        return Promise.reject(error);
+    }
+);
+
 function getCovidData() {
-    console.log(encodeURIComponent(keyValue));
-    instance
-        .get(`?${encodeURIComponent(keyValue)}`)
-        .then((response) => {
-            console.log(response);
-        })
-        .catch((error) => {
-            console.log(error);
-        });
+    return instance.get(`?serviceKey=${keyValue}`);
+    // return fetch(`${baseUrl}?serviceKey=${keyValue}`, {
+    //     method: "get",
+    //     type: "json",
+    // });
+    // return $.ajax({
+    //     url: `${baseUrl}?serviceKey=${keyValue}`,
+    //     dataType: "json",
+    //     type: "get",
+    //     success: function(data) {
+    //         console.log(data);
+    //     },
+    // });
 }
 
 export { getCovidData };

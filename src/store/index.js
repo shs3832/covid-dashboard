@@ -8,12 +8,21 @@ export const store = new Vuex.Store({
     state: {
         covidDatas: 0,
     },
-    mutations: {},
+    mutations: {
+        covidStatus(state, data) {
+            state.covidDatas = data;
+        },
+    },
     actions: {
-        async fetchData() {
-            const covidData = await getCovidData();
-
-            console.log(covidData);
+        async fetchData(context) {
+            console.log("loading!!");
+            try {
+                const { data } = await getCovidData();
+                console.log(data);
+                context.commit("covidStatus", data);
+            } catch (error) {
+                console.log(error);
+            }
         },
     },
 });

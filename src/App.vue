@@ -9,7 +9,6 @@
 
 <script>
 import { store } from "@/store/index.js";
-import { getCovidData } from "@/api/index.js";
 
 import Header from "@/components/header.vue";
 import SummaryTable from "@/components/summaryTable.vue";
@@ -21,7 +20,7 @@ export default {
     components: { SummaryBoard, Header, SummaryTable, CityTable },
     store,
     created() {
-        getCovidData();
+        this.$store.dispatch("fetchData");
     },
 };
 </script>
