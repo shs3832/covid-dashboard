@@ -6,20 +6,25 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
-        covidDatas: 0,
+        covidDatas: "",
+        spinner: false,
     },
     mutations: {
         covidStatus(state, data) {
             state.covidDatas = data;
         },
+        spinnerStatus(state) {
+            state.spinner = !state.spinner;
+        },
     },
     actions: {
-        async fetchData(context) {
+        async fetchData({ commit }) {
             console.log("loading!!");
             try {
                 const { data } = await getCovidData();
                 console.log(data);
-                context.commit("covidStatus", data);
+                commit("covidStatus", data);
+                commit("spinnerStatus");
             } catch (error) {
                 console.log(error);
             }

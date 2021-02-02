@@ -4,23 +4,24 @@
         <SummaryBoard></SummaryBoard>
         <SummaryTable></SummaryTable>
         <CityTable></CityTable>
+        <Spinner v-if="!spinner"></Spinner>
     </div>
 </template>
 
 <script>
-import { store } from "@/store/index.js";
-
 import Header from "@/components/header.vue";
 import SummaryTable from "@/components/summaryTable.vue";
 import SummaryBoard from "@/components/summaryBoard.vue";
 import CityTable from "@/components/cityTable.vue";
-
+import Spinner from "@/components/spinner.vue";
+import { mapState } from "vuex";
 export default {
-    name: "App",
-    components: { SummaryBoard, Header, SummaryTable, CityTable },
-    store,
+    components: { SummaryBoard, Header, SummaryTable, CityTable, Spinner },
     created() {
         this.$store.dispatch("fetchData");
+    },
+    computed: {
+        ...mapState(["covidDatas", "spinner"]),
     },
 };
 </script>
