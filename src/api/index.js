@@ -7,6 +7,10 @@ function getCovidData() {
     return axios({
         method: "GET",
         url: `${baseUrl}/?serviceKey=${keyValue}`,
+        proxy: {
+            host: `${baseUrl}`,
+            port: 80,
+        },
     });
 }
 
