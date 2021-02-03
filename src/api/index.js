@@ -1,25 +1,19 @@
 import axios from "axios";
 
-// const baseUrl = "https://api.corona-19.kr";
+const baseUrl = process.env.VUE_APP_LOCAL_URI;
 const keyValue = "f4e2972b8fe25c7ab914e1fc3584edb40";
 
 function getCovidData() {
     return axios({
         method: "GET",
-        url: `https://api.corona-19.kr/korea/?serviceKey=${keyValue}`,
-        headers: {
-            "Access-Control-Allow-Headers": "*",
-        },
+        url: `${baseUrl}/?serviceKey=${keyValue}`,
     });
 }
 
 function getCityCovidData() {
     return axios({
         method: "GET",
-        url: `https://api.corona-19.kr/korea/country/new/?serviceKey=${keyValue}`,
-        headers: {
-            "Access-Control-Allow-Headers": "*",
-        },
+        url: `${baseUrl}/country/new/?serviceKey=${keyValue}`,
     });
 }
 
