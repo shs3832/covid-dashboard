@@ -7,6 +7,9 @@ function getCovidData() {
     return axios({
         method: "GET",
         url: `https://api.corona-19.kr/korea/?serviceKey=${keyValue}`,
+        headers: {
+            "Access-Control-Allow-Headers": "*",
+        },
     });
 }
 
@@ -14,6 +17,9 @@ function getCityCovidData() {
     return axios({
         method: "GET",
         url: `https://api.corona-19.kr/korea/country/new/?serviceKey=${keyValue}`,
+        headers: {
+            "Access-Control-Allow-Headers": "*",
+        },
     });
 }
 
