@@ -166,9 +166,6 @@ body {
         padding: 20px;
         @media screen and (max-width: 768px) {
             display: none;
-            &.isMobile {
-                display: block;
-            }
         }
         h2 {
             font-size: 20px;
@@ -194,12 +191,17 @@ body {
             }
         }
         &.isMobile {
+            display: none;
+            @media screen and (max-width: 768px) {
+                display: block;
+            }
             .city-name {
                 display: flex;
                 i {
                     display: inline-block;
                     margin-left: auto;
                     font-size: 0.7em;
+                    cursor: pointer;
                 }
             }
             ul {
