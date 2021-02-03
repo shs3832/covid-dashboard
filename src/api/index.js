@@ -1,4 +1,5 @@
 import axios from "axios";
+// import $ from "jquery";
 
 const baseUrl = process.env.VUE_APP_LOCAL_URI;
 const keyValue = "f4e2972b8fe25c7ab914e1fc3584edb40";
@@ -19,6 +20,11 @@ function getCovidData() {
     //         "Access-Control-Allow-Origin": "*",
     //         "Content-Type": "application/json",
     //     },
+    // });
+    // return $.getJSON(`${baseUrl}/?serviceKey=${keyValue}&callback=?`, function(
+    //     data
+    // ) {
+    //     console.log(data);
     // });
 }
 
@@ -42,6 +48,11 @@ function getCityCovidData() {
     //         },
     //     }
     // );
+    // return $.getJSON(`${baseUrl}/?serviceKey=${keyValue}&callback=?`, function(
+    //     data
+    // ) {
+    //     console.log(data);
+    // });
 }
 
 export { getCovidData, getCityCovidData };
