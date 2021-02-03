@@ -18,16 +18,35 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <tr v-for="data in datas" :key="data.countryName">
+                        <template v-if="data.countryName">
+                            <td>{{ data.countryName }}</td>
+                            <td>{{ data.newCase }}</td>
+                            <td>{{ data.totalCase }}</td>
+                            <td>{{ data.recovered }}</td>
+                            <td>{{ data.death }}</td>
+                            <td>
+                                <template v-if="Number(data.percentage)">
+                                    {{ data.percentage }}%
+                                </template>
+                                <template v-else>
+                                    {{ data.percentage }}
+                                </template>
+                            </td>
+                        </template>
                     </tr>
                 </tbody>
             </table>
         </article>
     </section>
 </template>
+
+<script>
+export default {
+    computed: {
+        datas() {
+            return this.$store.state.covidCityDatas;
+        },
+    },
+};
+</script>

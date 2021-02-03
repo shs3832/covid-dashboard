@@ -19,6 +19,7 @@ export default {
     components: { SummaryBoard, Header, SummaryTable, CityTable, Spinner },
     created() {
         this.$store.dispatch("fetchData");
+        this.$store.dispatch("fetchCityData");
     },
     computed: {
         ...mapState(["covidDatas", "spinner"]),

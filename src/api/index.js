@@ -7,7 +7,6 @@ const keyValue = "f4e2972b8fe25c7ab914e1fc3584edb40";
 const instance = axios.create({
     baseURL: baseUrl,
 });
-
 instance.interceptors.request.use(
     function(config) {
         return config;
@@ -33,4 +32,8 @@ function getCovidData() {
     // });
 }
 
-export { getCovidData };
+function getCityCovidData() {
+    return instance.get(`country/new/?serviceKey=${keyValue}`);
+}
+
+export { getCovidData, getCityCovidData };

@@ -5,7 +5,9 @@
             >Update Time : {{ covidDatas.updateTime }}</span
         >
         <div class="refresh">
-            <button type="button"><i class="fas fa-sync"></i></button>
+            <button type="button" @click="getDatas">
+                <i class="fas fa-sync"></i>
+            </button>
         </div>
     </h1>
 </template>
@@ -16,6 +18,13 @@ import { mapState } from "vuex";
 export default {
     computed: {
         ...mapState(["covidDatas"]),
+    },
+    methods: {
+        getDatas() {
+            this.$store.state.spinner = !this.$store.state.spinner;
+            this.$store.dispatch("fetchData");
+            this.$store.dispatch("fetchCityData");
+        },
     },
 };
 </script>

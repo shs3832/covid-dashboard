@@ -89,8 +89,14 @@ body {
                     display: block;
                 }
                 strong {
-                    font-size: 18px;
+                    font-size: 20px;
                     margin-bottom: 15px;
+                }
+                span {
+                    font-size: 30px;
+                    small {
+                        font-size: 0.6em;
+                    }
                 }
             }
             &.list-col-2 {
@@ -127,6 +133,7 @@ body {
             td {
                 padding: 15px 5px;
                 border: 1px solid #575757;
+                text-align: center;
             }
         }
     }
