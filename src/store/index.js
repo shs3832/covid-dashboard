@@ -36,6 +36,7 @@ export const store = new Vuex.Store({
             console.log("city data loading!!");
             try {
                 const { data } = await getCityCovidData();
+                console.log(data);
                 commit("covidCityStatus", data);
                 commit("spinnerStatus");
             } catch (error) {
