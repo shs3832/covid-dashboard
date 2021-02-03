@@ -7,18 +7,41 @@ function getCovidData() {
     return axios({
         method: "GET",
         url: `${baseUrl}/?serviceKey=${keyValue}`,
-        proxy: {
-            host: `${baseUrl}`,
-            port: 80,
+        headers: {
+            "Access-Control-Allow-Headers": "*",
         },
     });
+    // return fetch(`https://api.corona-19.kr/korea/?serviceKey=${keyValue}`, {
+    //     method: "GET",
+    //     // mode: "cors",
+    //     headers: {
+    //         "Access-Control-Allow-Headers": "*",
+    //         "Access-Control-Allow-Origin": "*",
+    //         "Content-Type": "application/json",
+    //     },
+    // });
 }
 
 function getCityCovidData() {
     return axios({
         method: "GET",
         url: `${baseUrl}/country/new/?serviceKey=${keyValue}`,
+        headers: {
+            "Access-Control-Allow-Headers": "*",
+        },
     });
+    // return fetch(
+    //     `https://api.corona-19.kr/korea/country/new/?serviceKey=${keyValue}`,
+    //     {
+    //         method: "GET",
+    //         // mode: "cors",
+    //         headers: {
+    //             "Access-Control-Allow-Headers": "*",
+    //             "Access-Control-Allow-Origin": "*",
+    //             "Content-Type": "application/json",
+    //         },
+    //     }
+    // );
 }
 
 export { getCovidData, getCityCovidData };
