@@ -1,7 +1,7 @@
 # 코로나 Dashboard
 
-## image preview
-![preview_img](../../src/asset/images/preview_img.jpg)
+## preview
+![preview_img](./src/assets/images/preview_img.jpg)
 
 ## 라이브서버이슈
 
