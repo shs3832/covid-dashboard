@@ -2,7 +2,7 @@
     <h1>
         국내 코로나 현황판
         <span class="update-time"
-            >Update Time : {{ covidDatas.updateTime }}</span
+            ><span>Update Time :</span> {{ covidDatas.updateTime }}</span
         >
         <div class="refresh">
             <button type="button" @click="getDatas">

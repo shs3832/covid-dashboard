@@ -38,6 +38,40 @@
                 </tbody>
             </table>
         </article>
+        <article class="city-table isMobile">
+            <div
+                class="city-block"
+                v-for="dataMobile in datas"
+                :key="dataMobile.countryName"
+            >
+                <template v-if="dataMobile.countryName">
+                    <h2 class="city-name">
+                        {{ dataMobile.countryName }}
+                        <i class="fas fa-chevron-down" @click="toggleEvent"></i>
+                    </h2>
+                    <ul class="city-list">
+                        <li>
+                            <span>신규확진자수</span>{{ dataMobile.newCase }}
+                        </li>
+                        <li>
+                            <span>확진환자수</span>{{ dataMobile.totalCase }}
+                        </li>
+                        <li><span>완치자수</span>{{ dataMobile.recovered }}</li>
+                        <li><span>사망자</span>{{ dataMobile.death }}</li>
+                        <li>
+                            <template v-if="Number(dataMobile.percentage)">
+                                <span>발생률</span>
+                                {{ dataMobile.percentage }}%
+                            </template>
+                            <template v-else>
+                                <span>발생률</span>
+                                {{ dataMobile.percentage }}
+                            </template>
+                        </li>
+                    </ul>
+                </template>
+            </div>
+        </article>
     </section>
 </template>
 
@@ -46,6 +80,21 @@ export default {
     computed: {
         datas() {
             return this.$store.state.covidCityDatas;
+        },
+    },
+    created() {},
+    methods: {
+        toggleEvent(event) {
+            let target = event.target.parentNode.parentNode.querySelector(
+                ".city-list"
+            );
+            event.target.classList.contains("fa-chevron-up")
+                ? event.target.classList.remove("fa-chevron-up")
+                : event.target.classList.add("fa-chevron-up");
+
+            target.classList.contains("on")
+                ? target.classList.remove("on")
+                : target.classList.add("on");
         },
     },
 };
