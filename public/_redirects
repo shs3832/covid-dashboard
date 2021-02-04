@@ -1,1 +1,8 @@
-/korea/*  https://api.corona-19.kr/korea/:splat  200
+
+
+[[redirects]]
+  from = "/korea/"
+  to = "https://api.corona-19.kr/korea/"
+  status = 200
+  force = true 
+  headers = {"Access-Control-Allow-Origin" = "*"}
