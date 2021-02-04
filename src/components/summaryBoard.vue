@@ -1,15 +1,39 @@
 <template>
     <section class="contents-section">
-        <article class="summary-board">
+        <article class="summary-top">
             <div class="board-block">
                 <h2>신규확진자수</h2>
-                <div class="count">
-                    전일 환자수 :
-                    {{ stateAccess.yesterday - stateAccess.today }}
-                    <br />
-                    금일 환자수 : {{ stateAccess.yesterday }}
+                <div class="today">
+                    <ul>
+                        <li>
+                            금일 환자수
+                            <strong>{{ stateAccess.today }}</strong>
+                        </li>
+                        <li>
+                            전일 환자수
+                            <strong>
+                                {{ stateAccess.today - stateAccess.yesterday }}
+                            </strong>
+                        </li>
+
+                        <li>
+                            전일대비
+                            <strong :class="calc === true ? '' : 'minus'">
+                                <span>
+                                    <span v-if="calc"
+                                        >+{{ stateAccess.yesterday }}</span
+                                    >
+                                    <span v-else
+                                        >-{{ stateAccess.yesterday }}</span
+                                    >
+                                </span>
+                            </strong>
+                        </li>
+                    </ul>
                 </div>
             </div>
+        </article>
+        <article class="summary-board">
             <div class="board-block">
                 <h2>국내 확진자수</h2>
                 <div class="count">{{ datas.TotalCase }}</div>
@@ -40,7 +64,18 @@ export default {
         stateAccess() {
             return this.$store.state;
         },
-
+        today() {
+            return `${new Date(Date.now()).toLocaleDateString()}`;
+        },
+        yesterday() {
+            return `${new Date(Date.now() - 86400000).toLocaleDateString()}`;
+        },
+        calc() {
+            let status = null;
+            let calcCase = this.stateAccess.today - this.stateAccess.yesterday;
+            Math.sign(calcCase) === 1 ? (status = true) : (status = false);
+            return status;
+        },
         ...mapState(["covidCityDatas"]),
     },
 };
