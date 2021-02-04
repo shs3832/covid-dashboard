@@ -9,13 +9,17 @@ export const store = new Vuex.Store({
         covidDatas: Object,
         covidCityDatas: Object,
         spinner: false,
+        today: Number,
+        yesterday: Number,
     },
     mutations: {
         covidStatus(state, data) {
             state.covidDatas = data;
+            state.today = data.TotalCaseBefore;
         },
         covidCityStatus(state, datas) {
             state.covidCityDatas = datas;
+            state.yesterday = datas.korea.newCase;
         },
         spinnerStatus(state) {
             state.spinner = !state.spinner;

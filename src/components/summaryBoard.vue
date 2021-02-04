@@ -3,7 +3,12 @@
         <article class="summary-board">
             <div class="board-block">
                 <h2>신규확진자수</h2>
-                <div class="count">{{ cityDatas.korea.newCase }}</div>
+                <div class="count">
+                    전일 환자수 :
+                    {{ stateAccess.yesterday - stateAccess.today }}
+                    <br />
+                    금일 환자수 : {{ stateAccess.yesterday }}
+                </div>
             </div>
             <div class="board-block">
                 <h2>국내 확진자수</h2>
@@ -26,14 +31,17 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
     computed: {
         datas() {
             return this.$store.state.covidDatas;
         },
-        cityDatas() {
-            return this.$store.state.covidCityDatas;
+        stateAccess() {
+            return this.$store.state;
         },
+
+        ...mapState(["covidCityDatas"]),
     },
 };
 </script>
