@@ -8,21 +8,25 @@
                         <strong>국내 검사결과(양성)</strong>
                         <span
                             >{{ datas.caseCount }}
-                            <small>{{ datas.casePercentage }}%</small></span
+                            <small>({{ datas.casePercentage }}%)</small></span
                         >
                     </li>
                     <li>
                         <strong>국내 검사결과(음성)</strong>
                         <span
                             >{{ datas.notcaseCount }}
-                            <small>{{ datas.notcasePercentage }}%</small></span
+                            <small
+                                >({{ datas.notcasePercentage }}%)</small
+                            ></span
                         >
                     </li>
                     <li>
                         <strong>국내 검사중</strong>
                         <span
                             >{{ datas.checkingCounter }}
-                            <small>{{ datas.checkingPercentage }}%</small></span
+                            <small
+                                >({{ datas.checkingPercentage }}%)</small
+                            ></span
                         >
                     </li>
                 </ul>

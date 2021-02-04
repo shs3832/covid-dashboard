@@ -2,6 +2,10 @@
     <section class="contents-section">
         <article class="summary-board">
             <div class="board-block">
+                <h2>신규확진자수</h2>
+                <div class="count">{{ cityDatas.korea.newCase }}</div>
+            </div>
+            <div class="board-block">
                 <h2>국내 확진자수</h2>
                 <div class="count">{{ datas.TotalCase }}</div>
             </div>
@@ -26,6 +30,9 @@ export default {
     computed: {
         datas() {
             return this.$store.state.covidDatas;
+        },
+        cityDatas() {
+            return this.$store.state.covidCityDatas;
         },
     },
 };
