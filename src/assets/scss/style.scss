@@ -90,11 +90,12 @@ body {
                         display: block;
                         margin-top: 5px;
                         color: #ff7777;
+                        font-weight: 600;
                         &.minus {
                             color: #8a99ff;
                         }
                         @media screen and (max-width: 768px) {
-                            font-size: 30px;
+                            font-size: 34px;
                         }
                     }
                 }
