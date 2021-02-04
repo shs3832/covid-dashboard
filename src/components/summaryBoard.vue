@@ -6,10 +6,15 @@
                 <div class="today">
                     <ul>
                         <li>
+                            국내 확진자수
+                            <strong>{{ datas.TotalCase }}</strong>
+                        </li>
+                        <li>
                             금일 환자수
                             <strong>{{ stateAccess.today }}</strong>
                         </li>
-                        <li>
+
+                        <!-- <li>
                             전일 환자수
                             <strong>
                                 {{ stateAccess.today - stateAccess.yesterday }}
@@ -28,16 +33,16 @@
                                     >
                                 </span>
                             </strong>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
         </article>
         <article class="summary-board">
-            <div class="board-block">
+            <!-- <div class="board-block">
                 <h2>국내 확진자수</h2>
                 <div class="count">{{ datas.TotalCase }}</div>
-            </div>
+            </div> -->
             <div class="board-block">
                 <h2>국내 완치자수</h2>
                 <div class="count">{{ datas.TotalRecovered }}</div>

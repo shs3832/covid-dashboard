@@ -73,10 +73,12 @@ body {
         }
         .today {
             margin-top: 25px;
+            // margin-top: 5px;
             ul {
                 display: flex;
                 li {
-                    width: 33.33%;
+                    // width: 33.33%;
+                    width: 50%;
                     text-align: center;
                     font-size: 24px;
                     @media screen and (max-width: 768px) {
@@ -118,20 +120,20 @@ body {
             }
         }
         .board-block {
-            width: 25%;
+            width: 33.33%;
             text-align: center;
 
             @media screen and (max-width: 1024px) {
-                width: 25%;
+                width: 33.33%;
                 text-align: center;
             }
             @media screen and (max-width: 768px) {
-                width: 50%;
+                width: 33.33%;
 
-                &:nth-child(1),
-                &:nth-child(2) {
-                    margin-bottom: 30px;
-                }
+                // &:nth-child(1),
+                // &:nth-child(2) {
+                //     margin-bottom: 30px;
+                // }
             }
             .count {
                 margin-top: 15px;
