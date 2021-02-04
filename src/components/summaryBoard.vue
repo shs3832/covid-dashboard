@@ -10,7 +10,7 @@
                             <strong>{{ datas.TotalCase }}</strong>
                         </li>
                         <li>
-                            금일 환자수
+                            신규 확진자수
                             <strong>{{ stateAccess.today }}</strong>
                         </li>
 
