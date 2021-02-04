@@ -1,1 +1,1 @@
-/korea/*  https://api.corona-19.kr/korea  200
+/korea/*  https://api.corona-19.kr/korea/:splat  200
