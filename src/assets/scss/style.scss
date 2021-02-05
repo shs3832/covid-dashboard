@@ -214,6 +214,21 @@ body {
             }
         }
     }
+    .city-chart {
+        margin-top: 30px;
+        border: 1px solid #575757;
+        border-top: 3px solid #ff7777;
+        padding: 20px;
+        h2 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            font-weight: 300;
+            display: flex;
+        }
+        canvas {
+            width: 100%;
+        }
+    }
     .city-table {
         margin-top: 30px;
         border: 1px solid #575757;
