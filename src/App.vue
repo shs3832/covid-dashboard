@@ -3,7 +3,7 @@
         <Header></Header>
         <SummaryBoard></SummaryBoard>
         <SummaryTable></SummaryTable>
-        <Bar></Bar>
+        <BarChart></BarChart>
         <CityTable></CityTable>
         <Spinner v-if="!spinner"></Spinner>
     </div>
@@ -14,7 +14,7 @@ import Header from "@/components/header.vue";
 import SummaryTable from "@/components/summaryTable.vue";
 import SummaryBoard from "@/components/summaryBoard.vue";
 import CityTable from "@/components/cityTable.vue";
-import Bar from "@/components/barChart.vue";
+import BarChart from "@/components/barChart.vue";
 import Spinner from "@/components/spinner.vue";
 import { mapState } from "vuex";
 export default {
@@ -23,7 +23,7 @@ export default {
         Header,
         SummaryTable,
         CityTable,
-        Bar,
+        BarChart,
         Spinner,
     },
     created() {

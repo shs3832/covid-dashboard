@@ -14,13 +14,21 @@ export default {
                 labels: this.topCityName,
                 datasets: [
                     {
+                        axis: "y",
                         label: this.labelText,
                         backgroundColor: [
-                            "rgba(238,35,35,.8)",
-                            "rgba(248,144,9,.8)",
-                            "rgba(0,154,135,.8)",
-                            "rgba(241,202,241,.8)",
-                            "rgba(40,167,69,.8)",
+                            "rgba(255, 99, 132, 0.5)",
+                            "rgba(54, 162, 235, 0.5)",
+                            "rgba(255, 206, 86, 0.5)",
+                            "rgba(75, 192, 192, 0.5)",
+                            "rgba(153, 102, 255, 0.5)",
+                        ],
+                        borderColor: [
+                            "rgba(255,99,132,1)",
+                            "rgba(54, 162, 235, 1)",
+                            "rgba(255, 206, 86, 1)",
+                            "rgba(75, 192, 192, 1)",
+                            "rgba(153, 102, 255, 1)",
                         ],
 
                         data: this.topCity,

@@ -2,13 +2,15 @@
     <section class="contents-section">
         <div class="city-chart">
             <h2>시도별 발생동향</h2>
-            <Bar
-                v-if="isLoaded"
-                :topCity="this.topCity"
-                :topCityName="this.topCityName"
-                :options="this.options"
-                :labelText="this.label"
-            />
+            <div class="chart-block">
+                <Bar
+                    v-if="isLoaded"
+                    :topCity="this.topCity"
+                    :topCityName="this.topCityName"
+                    :options="this.options"
+                    :labelText="this.label"
+                />
+            </div>
         </div>
     </section>
 </template>
@@ -25,6 +27,7 @@ export default {
             topCity: Array,
             topCityName: Array,
             options: {
+                indexAxis: "y",
                 responsive: true,
                 maintainAspectRatio: false,
                 legend: {
@@ -33,6 +36,7 @@ export default {
                         fontSize: 14,
                     },
                 },
+
                 scales: {
                     xAxes: [
                         {
